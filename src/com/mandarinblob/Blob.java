@@ -23,6 +23,7 @@ public class Blob extends BaseBlob {
             case 'd': moveRight(oldBoard,newBoard); break;
         }
     }
-
-
+    public char getChar() {
+        return 'B';
+    }
 }

@@ -58,20 +58,38 @@ public class BaseEntity implements Cloneable{
         }
         b.setX(a.getX());
         b.setY(a.getY());
+
+        //If one is basket, basket remains
         if(a instanceof Basket){
             return a;
         }
         if(b instanceof Basket){
             return b;
         }
-
-        if (a instanceof Blob){
+        //If both are blobs, they merge
+        if (a instanceof Blob && b instanceof Blob){
             return a;
         }
-        if(b instanceof Blob){
+        //If antiblob meets blob, they disappear
+        if(b instanceof Blob && a instanceof AntiBlob){
+            return new BaseEntity(a.getX(), a.getY()); //return empty
+        }
+        if(b instanceof AntiBlob && a instanceof Blob) {
+            return new BaseEntity(a.getX(), a.getY()); //return empty
+        }
+        //if one is blob and the other is empty, blob will be there
+        if(a instanceof Blob) {
+            return a;
+        }
+        if(b instanceof Blob) {
             return b;
         }
-
+        if(a instanceof AntiBlob) {
+            return a;
+        }
+        if(b instanceof AntiBlob) {
+            return b;
+        }
         return a;
     }
 }

@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         Scanner scanner = new Scanner(System.in);
-        String s = "...\n.X.\nBBB\n...";
+        String s = "...\n.X.\nBOB\n...";
         Board board = new Board(4,3,s);
         boolean done = false;
         while(!done){

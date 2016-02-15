@@ -38,6 +38,10 @@ public class Board {
                         entities[i][j] = new Blob(i,j);
                         break;
 
+                    case 'O':
+                        entities[i][j] = new AntiBlob(i,j);
+                        break;
+
                     default:
                         System.err.println("Not recognised char: " + s.charAt(i*(w+1)+j));
                         System.exit(-1);
