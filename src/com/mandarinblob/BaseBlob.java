@@ -19,28 +19,28 @@ public class BaseBlob extends BaseEntity{
     }
 
     protected void moveUp   (Board oldBoard,Board newBoard){
-        if (x > 0) {
+        if (x > 0 && !(oldBoard.entities[x-1][y] instanceof Wall) ) {
             newBoard.entities[x-1][y] = merge(newBoard.entities[x-1][y], this);
         } else {
             noMove(oldBoard,newBoard);
         }
     }
     protected void moveDown  (Board oldBoard,Board newBoard){
-        if (x < oldBoard.getHeight()-1) {
+        if (x < oldBoard.getHeight()-1 && !(oldBoard.entities[x+1][y] instanceof Wall)) {
             newBoard.entities[x+1][y] = merge(newBoard.entities[x+1][y], this);
         } else {
             noMove(oldBoard,newBoard);
         }
     }
     protected void moveLeft   (Board oldBoard,Board newBoard){
-        if (y > 0) {
+        if (y > 0 && !(oldBoard.entities[x][y-1] instanceof Wall)) {
             newBoard.entities[x][y-1] = merge(newBoard.entities[x][y-1], this);
         } else {
             noMove(oldBoard,newBoard);
         }
     }
     protected void moveRight (Board oldBoard,Board newBoard){
-        if (y < oldBoard.getWidth()-1) {
+        if (y < oldBoard.getWidth()-1 && !(oldBoard.entities[x][y+1] instanceof Wall)) {
             newBoard.entities[x][y+1] = merge(newBoard.entities[x][y+1], this);
         } else {
             noMove(oldBoard,newBoard);

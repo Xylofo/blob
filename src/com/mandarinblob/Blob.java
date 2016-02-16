@@ -15,7 +15,7 @@ public class Blob extends BaseBlob {
     }
 
     public void update(int key, Board oldBoard, Board newBoard) {
-        System.out.printf("Blob at (%d,%d) got key #%d\n",x,y,key);
+        //System.out.printf("Blob at (%d,%d) got key #%d\n",x,y,key);
         switch ((char)key){
             case 'w': moveUp   (oldBoard,newBoard); break;
             case 's': moveDown (oldBoard,newBoard); break;

@@ -42,6 +42,10 @@ public class Board {
                         entities[i][j] = new AntiBlob(i,j);
                         break;
 
+                    case '#':
+                        entities[i][j] = new Wall(i,j);
+                        break;
+
                     default:
                         System.err.println("Not recognised char: " + s.charAt(i*(w+1)+j));
                         System.exit(-1);

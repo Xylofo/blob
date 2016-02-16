@@ -61,9 +61,19 @@ public class BaseEntity implements Cloneable{
 
         //If one is basket, basket remains
         if(a instanceof Basket){
+            if(b instanceof Blob) ScoreCounter.getInstance().incrementScore(1);
+            else if(b instanceof AntiBlob) ScoreCounter.getInstance().incrementScore(-1);
             return a;
         }
         if(b instanceof Basket){
+            if(a instanceof Blob) ScoreCounter.getInstance().incrementScore(1);
+            else if(a instanceof AntiBlob) ScoreCounter.getInstance().incrementScore(-1);
+            return b;
+        }
+        if(a instanceof Wall){
+            return a;
+        }
+        if(b instanceof Wall){
             return b;
         }
         //If both are blobs, they merge

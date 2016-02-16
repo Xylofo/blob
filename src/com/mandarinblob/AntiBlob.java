@@ -16,7 +16,7 @@ public class AntiBlob extends BaseBlob {
     }
 
     public void update(int key, Board oldBoard, Board newBoard) {
-        System.out.printf("Blob at (%d,%d) got key #%d\n",x,y,key);
+        //System.out.printf("Blob at (%d,%d) got key #%d\n",x,y,key);
         switch ((char)key){
             //reverse movement
             case 'w': moveDown   (oldBoard,newBoard); break;
